@@ -156,9 +156,11 @@ void BaseEngine::CreateObjectArray(int iNumberObjects)
 {
 	// Destroy any existing object array if it exists
 	DestroyOldObjects();
-	m_ppDisplayableObjects = new DisplayableObject*[iNumberObjects + 1];
-	// Clear the array - set all elements to 0
-	memset(m_ppDisplayableObjects, 0, sizeof(DisplayableObject*) * (iNumberObjects + 1));
+	// Resize the vector with all values set to 0
+	m_ppDisplayableObjects.resize(iNumberObjects, 0);
+	//m_ppDisplayableObjects = new DisplayableObject*[iNumberObjects + 1];
+//	memset(m_ppDisplayableObjects, 0, sizeof(DisplayableObject*) * (iNumberObjects + 1));
+
 }
 
 
@@ -175,16 +177,15 @@ void BaseEngine::DestroyOldObjects()
 {
 	// Record the fact that the drawable objects have changed.
 	m_iDrawableObjectsChanged = 1;
-
-	if (m_ppDisplayableObjects != NULL)
-	{
+	if (m_ppDisplayableObjects.size() > 0){
+		//deleting each displayable object in the vector
 		for (int i = 0; m_ppDisplayableObjects[i] != NULL; i++)
 		{
 			delete m_ppDisplayableObjects[i];
 			m_ppDisplayableObjects[i] = NULL;
 		}
-		delete[] m_ppDisplayableObjects;
-		m_ppDisplayableObjects = NULL;
+		//Deallocating all the space from the vector by swapping it with an empty vector
+		std::vector<DisplayableObject*>().swap(m_ppDisplayableObjects);;
 	}
 }
 
@@ -388,7 +389,7 @@ void BaseEngine::GameRender(void)
 void BaseEngine::UpdateAllObjects( int iCurrentTime )
 {
 	m_iDrawableObjectsChanged = 0;
-	if ( m_ppDisplayableObjects != NULL )
+	if ( m_ppDisplayableObjects.size() > 0)
 	{
 		for ( int i = 0 ; m_ppDisplayableObjects[i] != NULL ; i++ )
 		{
@@ -608,7 +609,7 @@ void BaseEngine::UndrawObjects()
 {
 	m_iDrawableObjectsChanged = 0;
 	// This effectively un-draws the old positions of the objects
-	if ( m_ppDisplayableObjects != NULL )
+	if ( m_ppDisplayableObjects.size() > 0)
 	{
 		for ( int i = 0 ; m_ppDisplayableObjects[i] != NULL ; i++ )
 		{
@@ -627,7 +628,7 @@ void BaseEngine::DrawObjects()
 {
 	m_iDrawableObjectsChanged= 0;
 	// And this re-draws the new positions
-	if ( m_ppDisplayableObjects != NULL )
+	if ( m_ppDisplayableObjects.size() > 0 )
 	{
 		for ( int i = 0 ; m_ppDisplayableObjects[i] != NULL ; i++ )
 		{
@@ -648,7 +649,7 @@ You may need to dynamic_cast the resulting pointer to the correct type.
 */
 DisplayableObject* BaseEngine::GetDisplayableObject( int iIndex )
 {
-	if ( m_ppDisplayableObjects != NULL )
+	if ( m_ppDisplayableObjects.size() > 0)
 	{
 		return m_ppDisplayableObjects[iIndex];
 	}
@@ -1177,7 +1178,7 @@ void BaseEngine::DrawShortenedLine( int iX1,int iY1,int iX2,int iY2,
 
 void BaseEngine::NotifyAllObjects( int iSignalNumber )
 {
-	if ( m_ppDisplayableObjects != NULL )
+	if ( m_ppDisplayableObjects.size() > 0)
 	{
 		for ( int i = 0; m_ppDisplayableObjects[i] != NULL; i++ )
 		{
@@ -1190,7 +1191,7 @@ void BaseEngine::NotifyAllObjects( int iSignalNumber )
 int BaseEngine::NotifyAllObjectsGetCountNonZero( int iSignalNumber )
 {
 	int iReturn = 0;
-	if ( m_ppDisplayableObjects != NULL )
+	if ( m_ppDisplayableObjects.size() > 0)
 	{
 		for ( int i = 0; m_ppDisplayableObjects[i] != NULL; i++ )
 		{
@@ -1205,7 +1206,7 @@ int BaseEngine::NotifyAllObjectsGetCountNonZero( int iSignalNumber )
 int BaseEngine::NotifyAllObjectsGetSum( int iSignalNumber )
 {
 	int iReturn = 0;
-	if ( m_ppDisplayableObjects != NULL )
+	if ( m_ppDisplayableObjects.size() > 0)
 	{
 		for ( int i = 0; m_ppDisplayableObjects[i] != NULL; i++ )
 		{
@@ -1219,7 +1220,7 @@ int BaseEngine::NotifyAllObjectsGetSum( int iSignalNumber )
 int BaseEngine::NotifyAllObjectsGetMax( int iSignalNumber )
 {
 	int iReturn = INT_MIN;
-	if ( m_ppDisplayableObjects != NULL )
+	if ( m_ppDisplayableObjects.size() > 0)
 	{
 		for ( int i = 0; m_ppDisplayableObjects[i] != NULL; i++ )
 		{
@@ -1235,7 +1236,7 @@ int BaseEngine::NotifyAllObjectsGetMax( int iSignalNumber )
 int BaseEngine::NotifyAllObjectsGetMin( int iSignalNumber )
 {
 	int iReturn = INT_MAX;
-	if ( m_ppDisplayableObjects != NULL )
+	if ( m_ppDisplayableObjects.size() > 0)
 	{
 		for ( int i = 0; m_ppDisplayableObjects[i] != NULL; i++ )
 		{
