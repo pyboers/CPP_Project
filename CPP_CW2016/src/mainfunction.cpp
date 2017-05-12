@@ -11,6 +11,7 @@
 #include "Demo2Main.h"
 #include "Demo3Main.h"
 #include "Demo4Main.h"
+#include "GameEngine.h"
 
 #define BASE_SCREEN_WIDTH 800
 #define BASE_SCREEN_HEIGHT 600
@@ -25,13 +26,13 @@ int main(int argc, char *argv[])
 	::srand(time(0));
 
 	// Needs just one of the two following lines:
-	BouncingBallMain oMain;
+	//BouncingBallMain oMain;
 	//SimpleDemo oMain;
 	//Demo1Main oMain;
 	//Demo2Main oMain;
 	//Demo3Main oMain;
 	//Demo4Main oMain;
-
+	GameEngine oMain;
 	char buf[1024];
 	sprintf( buf, "My Demonstration Program : Size %d x %d", BASE_SCREEN_WIDTH, BASE_SCREEN_HEIGHT );
 	iResult = oMain.Initialise( buf, BASE_SCREEN_WIDTH, BASE_SCREEN_HEIGHT, "Cornerstone Regular.ttf", 24 );
