@@ -93,6 +93,12 @@
     <ClInclude Include="SimpleDemo.h">
       <Filter>Header Files\Demos</Filter>
     </ClInclude>
+    <ClInclude Include="State.h">
+      <Filter>Header Files\Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="StateManager.h">
+      <Filter>Header Files\Shared</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="mainfunction.cpp">
@@ -154,6 +160,9 @@
     </ClCompile>
     <ClCompile Include="SimpleDemo.cpp">
       <Filter>Source Files\Demos</Filter>
+    </ClCompile>
+    <ClCompile Include="StateManager.cpp">
+      <Filter>Source Files\Shared</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -94,6 +94,8 @@
     <ClInclude Include="FontManager.h" />
     <ClInclude Include="JPGImage.h" />
     <ClInclude Include="MovementPosition.h" />
+    <ClInclude Include="State.h" />
+    <ClInclude Include="StateManager.h" />
     <ClInclude Include="templates.h" />
     <ClInclude Include="TileManager.h" />
     <ClInclude Include="BouncingBall.h" />
@@ -118,6 +120,7 @@
     <ClCompile Include="FontManager.cpp" />
     <ClCompile Include="JPGImage.cpp" />
     <ClCompile Include="SimpleDemo.cpp" />
+    <ClCompile Include="StateManager.cpp" />
     <ClCompile Include="TileManager.cpp" />
     <ClCompile Include="BouncingBall.cpp" />
     <ClCompile Include="BouncingBallMain.cpp" />
