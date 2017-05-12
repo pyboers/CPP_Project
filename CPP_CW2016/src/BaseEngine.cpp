@@ -158,8 +158,6 @@ void BaseEngine::CreateObjectArray(int iNumberObjects)
 	DestroyOldObjects();
 	//Clears the vector
 	std::vector<DisplayableObject *>().swap(m_ppDisplayableObjects);
-	//Resizes it to contain the amount of objects
-	m_ppDisplayableObjects.resize(iNumberObjects + 1, 0);
 	//It is can be noted that instead of setting the capacity we are actually setting the size with intialized nulls. This is because due to the way the this array is used by subclasses we know we are going to use that exact amount of objects
 }
 
@@ -168,7 +166,15 @@ void BaseEngine::CreateObjectArray(int iNumberObjects)
 
 void BaseEngine::StoreObjectInArray(int iIndex, DisplayableObject* pObject)
 {
+	if (iIndex >= m_ppDisplayableObjects.size()){
+		m_ppDisplayableObjects.resize(iIndex + 1, 0);
+	}
 	m_ppDisplayableObjects[iIndex] = pObject;
+}
+
+void BaseEngine::StoreObjectInArray(DisplayableObject* pObject)
+{
+	m_ppDisplayableObjects.push_back(pObject);
 }
 
 
@@ -390,12 +396,11 @@ void BaseEngine::GameRender(void)
 void BaseEngine::UpdateAllObjects( int iCurrentTime )
 {
 	m_iDrawableObjectsChanged = 0;
-	if (m_ppDisplayableObjects.size() > 0)
+	for ( int i = 0 ; i < m_ppDisplayableObjects.size(); i++ )
 	{
-		for ( int i = 0 ; m_ppDisplayableObjects[i] != NULL ; i++ )
-		{
+		if (m_ppDisplayableObjects[i] != NULL){
 			m_ppDisplayableObjects[i]->DoUpdate(iCurrentTime);
-			if ( m_iDrawableObjectsChanged )
+			if (m_iDrawableObjectsChanged)
 				return; // Abort! Something changed in the array
 		}
 	}
@@ -417,7 +422,7 @@ void BaseEngine::Deinitialise(void)
 	delete[] m_pKeyStatus;
 }
 
-
+	
 /*
 Overridable function, for adding custom clean-up in sub-classes.
 */
@@ -610,14 +615,14 @@ void BaseEngine::UndrawObjects()
 {
 	m_iDrawableObjectsChanged = 0;
 	// This effectively un-draws the old positions of the objects
-	if (m_ppDisplayableObjects.size() > 0)
+	for ( int i = 0 ; i< m_ppDisplayableObjects.size() ; i++ )
 	{
-		for ( int i = 0 ; m_ppDisplayableObjects[i] != NULL ; i++ )
-		{
+		if (m_ppDisplayableObjects[i] != NULL){
 			m_ppDisplayableObjects[i]->RedrawBackground();
 			if ( m_iDrawableObjectsChanged )
 				return; // Abort! Something changed in the array
 		}
+
 	}
 }
 
@@ -629,14 +634,14 @@ void BaseEngine::DrawObjects()
 {
 	m_iDrawableObjectsChanged= 0;
 	// And this re-draws the new positions
-	if (m_ppDisplayableObjects.size() > 0)
+	for ( int i = 0 ; i < m_ppDisplayableObjects.size() ; i++ )
 	{
-		for ( int i = 0 ; m_ppDisplayableObjects[i] != NULL ; i++ )
-		{
+		if (m_ppDisplayableObjects[i] != NULL){
 			m_ppDisplayableObjects[i]->Draw();
-			if ( m_iDrawableObjectsChanged )
-				return; // Abort! Something changed in the array
+					if ( m_iDrawableObjectsChanged )
+						return; // Abort! Something changed in the array
 		}
+		
 	}
 }
 

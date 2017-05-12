@@ -40,6 +40,9 @@ public:
 
 	/* Store an object into an array element */
 	void StoreObjectInArray(int iIndex, DisplayableObject* pObject);
+
+	/* Store an object into an array element */
+	void StoreObjectInArray(DisplayableObject* pObject);
 	
 
 public:
