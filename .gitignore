@@ -1,0 +1,8 @@
+*\Debug
+*\Release
+*\RequiredRuntimeDLLs_exedir
+*\RequiredRuntimeFiles_srcdir
+*\SDL
+*.sdf
+*.sln
+*.suo
