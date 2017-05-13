@@ -8,6 +8,11 @@ Camera::Camera(GameEngine *pEngine)
 	SetVisible(false);
 }
 
+void Camera::Draw(){
+	pEngine->DrawScreenRectangle(pEngine->GetScreenWidth() / 2 - 5, pEngine->GetScreenHeight() / 2 - 5, pEngine->GetScreenWidth() / 2 + 5, pEngine->GetScreenHeight() / 2 + 5, 0xFF0000);
+	StoreLastScreenPositionForUndraw();
+}
+
 void Camera::DoUpdate(int iCurrentTime){
 	bool changed = false;
 	if (pEngine->IsKeyPressed('w')){
@@ -37,6 +42,7 @@ void Camera::DoUpdate(int iCurrentTime){
 
 
 	if (changed){
+		pEngine->gol.CellularAutomataPass();
 		pEngine->FillBackground(0x000000);
 		int tilex = pEngine->gol.GetTileXForPositionOnScreen(x);
 		int tiley = pEngine->gol.GetTileYForPositionOnScreen(y);
@@ -47,10 +53,19 @@ void Camera::DoUpdate(int iCurrentTime){
 		if (tiley <0){
 			tiley = 0;
 		}
-		// Tell it to draw tiles from x1,y1 to x2,y2 in tile array,
-		// to the background of this screen
-		if (pEngine->gol.IsValidTilePosition(x, y)){
-			pEngine->gol.SetValue(tilex, tiley, 0);
+		int offsetx, offsety;
+		for (offsetx = -20; offsetx <= 20; offsetx++){
+			for (offsety = -20; offsety <= 20; offsety++){
+				int realx = x + offsetx + pEngine->GetScreenWidth() / 2;
+				int realy = y + offsety + pEngine->GetScreenHeight() / 2;
+				if (pEngine->gol.IsValidTilePosition(realx, realy)){
+					int tx = pEngine->gol.GetTileXForPositionOnScreen(realx);
+					int ty = pEngine->gol.GetTileYForPositionOnScreen(realy);
+					if (pEngine->gol.GetValue(tx, ty)){
+						pEngine->gol.SetValue(tx, ty, 0);
+					}
+				}
+			}
 		}
 		int mapwidth = tilex + pEngine->GetScreenWidth() / pEngine->gol.GetTileWidth();
 		if (mapwidth >= pEngine->gol.getWidth()){

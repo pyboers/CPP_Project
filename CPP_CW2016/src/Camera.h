@@ -13,6 +13,8 @@ public:
 	Camera::Camera(GameEngine *pEngine);
 	void DoUpdate(int iCurrentTime);
 
+	void Draw();
+
 };
 
 #endif

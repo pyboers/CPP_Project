@@ -1,6 +1,6 @@
  CourseworkBase
 
- Timestamp is 59173053 (Sat May 13 17:12:03 2017)
+ Timestamp is 59173703 (Sat May 13 17:40:35 2017)
 
  Preferred load address is 00400000
 
@@ -42,9 +42,9 @@
   Address         Publics by Value              Rva+Base       Lib:Object
 
  0000:00000000       ___guard_fids_table        00000000     <absolute>
+ 0000:00000000       ___guard_flags             00000000     <absolute>
  0000:00000000       __except_list              00000000     <absolute>
  0000:00000000       ___guard_fids_count        00000000     <absolute>
- 0000:00000000       ___guard_flags             00000000     <absolute>
  0000:00000025       ___safe_se_handler_count   00000025     <absolute>
  0000:00009876       __fltused                  00009876     <absolute>
  0000:00009876       __ldused                   00009876     <absolute>
@@ -53,26 +53,27 @@
  0001:000010d0       _WinMain@16                004020d0 f   SDL2main:SDL_windows_main.obj
  0001:00003430       ??0Camera@@QAE@PAVGameEngine@@@Z 00404430 f   Camera.obj
  0001:000034e0       ??1Camera@@UAE@XZ          004044e0 f i Camera.obj
- 0001:00003510       ??_GCamera@@UAEPAXI@Z      00404510 f i Camera.obj
  0001:00003510       ??_ECamera@@UAEPAXI@Z      00404510 f i Camera.obj
- 0001:00003550       ?IsValidTilePosition@TileManager@@QBE_NHH@Z 00404550 f i Camera.obj
- 0001:000035d0       _hypot                     004045d0 f i Camera.obj
- 0001:000036e0       ?GetBackground@BaseEngine@@QAEPAUSDL_Surface@@XZ 004046e0 f i Camera.obj
- 0001:00003700       ?GetTileHeight@TileManager@@QBEHXZ 00404700 f i Camera.obj
- 0001:00003720       ?GetTileWidth@TileManager@@QBEHXZ 00404720 f i Camera.obj
- 0001:00003760       ?GetTileXForPositionOnScreen@TileManager@@QBEHH@Z 00404760 f i Camera.obj
- 0001:000037a0       ?GetTileYForPositionOnScreen@TileManager@@QBEHH@Z 004047a0 f i Camera.obj
- 0001:00003850       ?Notify@DisplayableObject@@UAEJH@Z 00404850 f i Camera.obj
- 0001:00003890       ?Redraw@BaseEngine@@QAEX_N@Z 00404890 f i Camera.obj
- 0001:000038c0       ?SetVisible@DisplayableObject@@QAEX_N@Z 004048c0 f i Camera.obj
+ 0001:00003510       ??_GCamera@@UAEPAXI@Z      00404510 f i Camera.obj
+ 0001:00003550       ?GetTileYForPositionOnScreen@TileManager@@QBEHH@Z 00404550 f i Camera.obj
+ 0001:00003580       _hypot                     00404580 f i Camera.obj
+ 0001:000035d0       ?SetVisible@DisplayableObject@@QAEX_N@Z 004045d0 f i Camera.obj
+ 0001:00003610       ?IsValidTilePosition@TileManager@@QBE_NHH@Z 00404610 f i Camera.obj
+ 0001:00003700       ?GetBackground@BaseEngine@@QAEPAUSDL_Surface@@XZ 00404700 f i Camera.obj
+ 0001:00003720       ?GetTileHeight@TileManager@@QBEHXZ 00404720 f i Camera.obj
+ 0001:00003760       ?GetTileWidth@TileManager@@QBEHXZ 00404760 f i Camera.obj
+ 0001:000037a0       ?GetTileXForPositionOnScreen@TileManager@@QBEHH@Z 004047a0 f i Camera.obj
+ 0001:000037d0       ?Draw@Camera@@UAEXXZ       004047d0 f   Camera.obj
+ 0001:00003890       ?Notify@DisplayableObject@@UAEJH@Z 00404890 f i Camera.obj
+ 0001:000038c0       ?Redraw@BaseEngine@@QAEX_N@Z 004048c0 f i Camera.obj
  0001:00003900       ??0GOLTileManager@@QAE@HHHH@Z 00404900 f i GameEngine.obj
  0001:000039a0       ??0GameEngine@@QAE@XZ      004049a0 f   GameEngine.obj
  0001:00003a40       ??0TileManager@@QAE@HH@Z   00404a40 f i GameEngine.obj
  0001:00003ac0       ??1GOLTileManager@@QAE@XZ  00404ac0 f i GameEngine.obj
  0001:00003af0       ??1GameEngine@@UAE@XZ      00404af0 f i GameEngine.obj
  0001:00003b70       ??1TileManager@@QAE@XZ     00404b70 f i GameEngine.obj
- 0001:00003bd0       ??_GGameEngine@@UAEPAXI@Z  00404bd0 f i GameEngine.obj
  0001:00003bd0       ??_EGameEngine@@UAEPAXI@Z  00404bd0 f i GameEngine.obj
+ 0001:00003bd0       ??_GGameEngine@@UAEPAXI@Z  00404bd0 f i GameEngine.obj
  0001:00003c20       ?DrawAllTiles@TileManager@@QBEXPAVBaseEngine@@PAUSDL_Surface@@HHHH@Z 00404c20 f i GameEngine.obj
  0001:00003c80       ?DrawTile@TileManager@@UBEXPAVBaseEngine@@PAUSDL_Surface@@HH@Z 00404c80 f i GameEngine.obj
  0001:00003cf0       ?DrawTile@TileManager@@UBEXPAVBaseEngine@@PAUSDL_Surface@@HHHH@Z 00404cf0 f i GameEngine.obj
@@ -139,8 +140,8 @@
  0001:00005430       ??2@YAPAXIPAX@Z            00406430 f i BaseEngine.obj
  0001:00005450       ??3@YAXPAX0@Z              00406450 f i BaseEngine.obj
  0001:00005470       ??A?$vector@PAVDisplayableObject@@V?$allocator@PAVDisplayableObject@@@std@@@std@@QAEAAPAVDisplayableObject@@I@Z 00406470 f i BaseEngine.obj
- 0001:000054a0       ??_GBaseEngine@@UAEPAXI@Z  004064a0 f i BaseEngine.obj
  0001:000054a0       ??_EBaseEngine@@UAEPAXI@Z  004064a0 f i BaseEngine.obj
+ 0001:000054a0       ??_GBaseEngine@@UAEPAXI@Z  004064a0 f i BaseEngine.obj
  0001:000054f0       ?CleanUp@BaseEngine@@UAEXXZ 004064f0 f   BaseEngine.obj
  0001:00005510       ?CopyAllBackgroundBuffer@BaseEngine@@QAEXXZ 00406510 f   BaseEngine.obj
  0001:00005570       ?CopyBackgroundPixels@BaseEngine@@QAEXHHHH@Z 00406570 f   BaseEngine.obj
@@ -358,10 +359,10 @@
  0001:0000f080       ??1BouncingBall@@UAE@XZ    00410080 f   BouncingBall.obj
  0001:0000f0b0       ??_GBouncingBall1@@UAEPAXI@Z 004100b0 f i BouncingBall.obj
  0001:0000f0b0       ??_EBouncingBall1@@UAEPAXI@Z 004100b0 f i BouncingBall.obj
- 0001:0000f100       ??_GBouncingBall2@@UAEPAXI@Z 00410100 f i BouncingBall.obj
  0001:0000f100       ??_EBouncingBall2@@UAEPAXI@Z 00410100 f i BouncingBall.obj
- 0001:0000f150       ??_GBouncingBall@@UAEPAXI@Z 00410150 f i BouncingBall.obj
+ 0001:0000f100       ??_GBouncingBall2@@UAEPAXI@Z 00410100 f i BouncingBall.obj
  0001:0000f150       ??_EBouncingBall@@UAEPAXI@Z 00410150 f i BouncingBall.obj
+ 0001:0000f150       ??_GBouncingBall@@UAEPAXI@Z 00410150 f i BouncingBall.obj
  0001:0000f1a0       ?Calculate@MovementPosition@@QAEXH@Z 004101a0 f i BouncingBall.obj
  0001:0000f2a0       ?DoUpdate@BouncingBall1@@UAEXH@Z 004102a0 f   BouncingBall.obj
  0001:0000f410       ?DoUpdate@BouncingBall2@@UAEXH@Z 00410410 f   BouncingBall.obj
@@ -419,8 +420,8 @@
  0001:00011ae0       ?DrawTileAt@Demo2TileManager@@UAEXPAVBaseEngine@@PAUSDL_Surface@@HHHH@Z 00412ae0 f   Demo2TileManager.obj
  0001:00011b60       ??0Demo3Main@@QAE@XZ       00412b60 f   Demo3Main.obj
  0001:00011bf0       ??1Demo3Main@@UAE@XZ       00412bf0 f   Demo3Main.obj
- 0001:00011c70       ??_EDemo3Main@@UAEPAXI@Z   00412c70 f i Demo3Main.obj
  0001:00011c70       ??_GDemo3Main@@UAEPAXI@Z   00412c70 f i Demo3Main.obj
+ 0001:00011c70       ??_EDemo3Main@@UAEPAXI@Z   00412c70 f i Demo3Main.obj
  0001:00011cc0       ?DrawStrings@Demo3Main@@UAEXXZ 00412cc0 f   Demo3Main.obj
  0001:00011d20       ?GameAction@Demo3Main@@UAEXXZ 00412d20 f   Demo3Main.obj
  0001:00011d80       ?InitialiseObjects@Demo3Main@@UAEHXZ 00412d80 f   Demo3Main.obj
@@ -429,8 +430,8 @@
  0001:00012060       ?SetupBackgroundBuffer@Demo3Main@@UAEXXZ 00413060 f   Demo3Main.obj
  0001:00012250       ??0Demo3Object@@QAE@PAVDemo3Main@@HH@Z 00413250 f   Demo3Object.obj
  0001:00012390       ??1Demo3Object@@UAE@XZ     00413390 f   Demo3Object.obj
- 0001:000123c0       ??_EDemo3Object@@UAEPAXI@Z 004133c0 f i Demo3Object.obj
  0001:000123c0       ??_GDemo3Object@@UAEPAXI@Z 004133c0 f i Demo3Object.obj
+ 0001:000123c0       ??_EDemo3Object@@UAEPAXI@Z 004133c0 f i Demo3Object.obj
  0001:00012410       ?DoUpdate@Demo3Object@@UAEXH@Z 00413410 f   Demo3Object.obj
  0001:000126a0       ?Draw@Demo3Object@@UAEXXZ  004136a0 f   Demo3Object.obj
  0001:00012730       ?GetTileManager@Demo3Main@@QAEAAVDemo3TileManager@@XZ 00413730 f i Demo3Object.obj
@@ -438,8 +439,8 @@
  0001:000127d0       ?GetYDiffForDirection@Demo3Object@@QAEHH@Z 004137d0 f i Demo3Object.obj
  0001:00012850       ??0Demo3ObjectFinished@@QAE@PAVDemo3Main@@HH@Z 00413850 f   Demo3ObjectFinished.obj
  0001:00012990       ??1Demo3ObjectFinished@@UAE@XZ 00413990 f   Demo3ObjectFinished.obj
- 0001:000129c0       ??_EDemo3ObjectFinished@@UAEPAXI@Z 004139c0 f i Demo3ObjectFinished.obj
  0001:000129c0       ??_GDemo3ObjectFinished@@UAEPAXI@Z 004139c0 f i Demo3ObjectFinished.obj
+ 0001:000129c0       ??_EDemo3ObjectFinished@@UAEPAXI@Z 004139c0 f i Demo3ObjectFinished.obj
  0001:00012a10       ?DoUpdate@Demo3ObjectFinished@@UAEXH@Z 00413a10 f   Demo3ObjectFinished.obj
  0001:00012de0       ?Draw@Demo3ObjectFinished@@UAEXXZ 00413de0 f   Demo3ObjectFinished.obj
  0001:00012ec0       ?GetXDiffForDirection@Demo3ObjectFinished@@QAEHH@Z 00413ec0 f i Demo3ObjectFinished.obj
@@ -449,8 +450,8 @@
  0001:00013030       ?DrawTileAt@Demo3TileManager@@UBEXPAVBaseEngine@@PAUSDL_Surface@@HHHH@Z 00414030 f   Demo3TileManager.obj
  0001:00013220       ??0Demo4Main@@QAE@XZ       00414220 f   Demo4Main.obj
  0001:000132c0       ??1Demo4Main@@UAE@XZ       004142c0 f   Demo4Main.obj
- 0001:00013340       ??_EDemo4Main@@UAEPAXI@Z   00414340 f i Demo4Main.obj
  0001:00013340       ??_GDemo4Main@@UAEPAXI@Z   00414340 f i Demo4Main.obj
+ 0001:00013340       ??_EDemo4Main@@UAEPAXI@Z   00414340 f i Demo4Main.obj
  0001:00013390       ?DrawObjects@Demo4Main@@UAEXXZ 00414390 f   Demo4Main.obj
  0001:000133c0       ?DrawStrings@Demo4Main@@UAEXXZ 004143c0 f   Demo4Main.obj
  0001:000134d0       ?GameAction@Demo4Main@@UAEXXZ 004144d0 f   Demo4Main.obj
