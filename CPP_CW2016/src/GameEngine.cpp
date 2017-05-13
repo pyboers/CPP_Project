@@ -1,12 +1,20 @@
 #include "GameEngine.h"
+#include "Camera.h"
 
-GameEngine::GameEngine() : BaseEngine(6){
+GameEngine::GameEngine() : BaseEngine(6), gol(10, 10, 500, 500){
 
 }
 
 void GameEngine::SetupBackgroundBuffer(void)
 {
+	StoreObjectInArray(new Camera(this));
 	FillBackground(0x000000);
+	gol.initValues(15);
+	// Specify the screen x,y of top left corner
+	gol.SetBaseTilesPositionOnScreen(0, 0);
+	// Tell it to draw tiles from x1,y1 to x2,y2 in tile array,
+	// to the background of this screen
+	gol.DrawAllTiles(this, this->GetBackground(), 0, 0, 499, 499);
 }
 
 

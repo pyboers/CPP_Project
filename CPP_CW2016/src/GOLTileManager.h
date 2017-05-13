@@ -10,11 +10,21 @@ class GOLTileManager : public TileManager{
 public:
 	GOLTileManager(int iTileHeight, int iTileWidth, int width, int height) : TileManager(iTileHeight, iTileHeight){
 		SetSize(width, height);
-		generateNoise();
 	}
+
+	void initValues(int iterations);
+
+	void GOLTileManager::DrawTileAt(
+		BaseEngine* pEngine,
+		SDL_Surface* pSurface,
+		int iMapX, int iMapY,
+		int iStartPositionScreenX, int iStartPositionScreenY) const;
+
 	void generateNoise();
 
 	void CellularAutomataPass();
+
+	bool isValidCoordinate(int x, int y);
 
 
 };

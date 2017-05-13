@@ -4,9 +4,12 @@
 #include "header.h"
 #include "templates.h"
 #include "BaseEngine.h"
-#include "GOLTileManager.h"
+#include "GOLTileManager.h"	
 class GameEngine : public BaseEngine{
+
+
 public:
+	GOLTileManager gol;
 	GameEngine();
 
 	void SetupBackgroundBuffer();
@@ -14,6 +17,7 @@ public:
 	void MouseDown(int iButton, int iX, int iY);
 
 	int InitialiseObjects(void);
+
 
 
 };

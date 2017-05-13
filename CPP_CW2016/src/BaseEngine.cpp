@@ -186,16 +186,16 @@ void BaseEngine::DestroyOldObjects()
 	// Record the fact that the drawable objects have changed.
 	m_iDrawableObjectsChanged = 1;
 
-	if (m_ppDisplayableObjects.size() > 0)
-	{
-		for (int i = 0; m_ppDisplayableObjects[i] != NULL; i++)
+		for (int i = 0; i < m_ppDisplayableObjects.size(); i++)
 		{
-			delete m_ppDisplayableObjects[i];
-			m_ppDisplayableObjects[i] = NULL;
+			if (m_ppDisplayableObjects[i] != NULL){
+				delete m_ppDisplayableObjects[i];
+				m_ppDisplayableObjects[i] = NULL;
+			}
+
 		}
 		//Clears the vector
 		std::vector<DisplayableObject *>().swap(m_ppDisplayableObjects);
-	}
 }
 
 
@@ -1186,12 +1186,12 @@ void BaseEngine::DrawShortenedLine( int iX1,int iY1,int iX2,int iY2,
 
 void BaseEngine::NotifyAllObjects( int iSignalNumber )
 {
-	if (m_ppDisplayableObjects.size() > 0)
+	for (int i = 0; i < m_ppDisplayableObjects.size(); i++)
 	{
-		for ( int i = 0; m_ppDisplayableObjects[i] != NULL; i++ )
-		{
+		if (m_ppDisplayableObjects[i] != NULL){
 			m_ppDisplayableObjects[i]->Notify( iSignalNumber );
 		}
+		
 	}
 }
 
@@ -1199,13 +1199,13 @@ void BaseEngine::NotifyAllObjects( int iSignalNumber )
 int BaseEngine::NotifyAllObjectsGetCountNonZero( int iSignalNumber )
 {
 	int iReturn = 0;
-	if (m_ppDisplayableObjects.size() > 0)
+	for (int i = 0; i < m_ppDisplayableObjects.size(); i++)
 	{
-		for ( int i = 0; m_ppDisplayableObjects[i] != NULL; i++ )
-		{
+		if (m_ppDisplayableObjects[i] != NULL){
 			if ( m_ppDisplayableObjects[i]->Notify( iSignalNumber ) != 0 )
 				iReturn++;
 		}
+			
 	}
 	return iReturn;
 }
@@ -1214,12 +1214,12 @@ int BaseEngine::NotifyAllObjectsGetCountNonZero( int iSignalNumber )
 int BaseEngine::NotifyAllObjectsGetSum( int iSignalNumber )
 {
 	int iReturn = 0;
-	if (m_ppDisplayableObjects.size() > 0)
+	for (int i = 0; i < m_ppDisplayableObjects.size(); i++)
 	{
-		for ( int i = 0; m_ppDisplayableObjects[i] != NULL; i++ )
-		{
+		if (m_ppDisplayableObjects[i] != NULL){
 			iReturn += m_ppDisplayableObjects[i]->Notify( iSignalNumber );
 		}
+			
 	}
 	return iReturn;
 }
@@ -1228,13 +1228,12 @@ int BaseEngine::NotifyAllObjectsGetSum( int iSignalNumber )
 int BaseEngine::NotifyAllObjectsGetMax( int iSignalNumber )
 {
 	int iReturn = INT_MIN;
-	if (m_ppDisplayableObjects.size() > 0)
+	for (int i = 0; i < m_ppDisplayableObjects.size(); i++)
 	{
-		for ( int i = 0; m_ppDisplayableObjects[i] != NULL; i++ )
-		{
+		if (m_ppDisplayableObjects[i] != NULL){
 			int ival = m_ppDisplayableObjects[i]->Notify( iSignalNumber );
-			if ( ival > iReturn )
-				iReturn = ival;
+				if ( ival > iReturn )
+					iReturn = ival;
 		}
 	}
 	return iReturn;
@@ -1244,14 +1243,14 @@ int BaseEngine::NotifyAllObjectsGetMax( int iSignalNumber )
 int BaseEngine::NotifyAllObjectsGetMin( int iSignalNumber )
 {
 	int iReturn = INT_MAX;
-	if (m_ppDisplayableObjects.size() > 0)
+	for (int i = 0; i < m_ppDisplayableObjects.size(); i++)
 	{
-		for ( int i = 0; m_ppDisplayableObjects[i] != NULL; i++ )
-		{
+		if (m_ppDisplayableObjects[i] != NULL){
 			int ival = m_ppDisplayableObjects[i]->Notify( iSignalNumber );
-			if ( ival < iReturn )
-				iReturn = ival;
+				if ( ival < iReturn )
+					iReturn = ival;
 		}
+			
 	}
 	return iReturn;
 }

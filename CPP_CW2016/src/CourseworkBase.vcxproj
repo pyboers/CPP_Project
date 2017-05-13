@@ -88,6 +88,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Camera.h" />
     <ClInclude Include="GameEngine.h" />
     <ClInclude Include="GOLTileManager.h" />
     <ClInclude Include="header.h" />
@@ -116,6 +117,7 @@
     <ClInclude Include="SimpleDemo.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Camera.cpp" />
     <ClCompile Include="GameEngine.cpp" />
     <ClCompile Include="GOLTileManager.cpp" />
     <ClCompile Include="mainfunction.cpp" />

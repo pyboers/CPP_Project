@@ -105,6 +105,9 @@
     <ClInclude Include="GOLTileManager.h">
       <Filter>Header Files\Shared</Filter>
     </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Header Files\Shared</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="mainfunction.cpp">
@@ -174,6 +177,9 @@
       <Filter>Source Files\Shared</Filter>
     </ClCompile>
     <ClCompile Include="GOLTileManager.cpp">
+      <Filter>Source Files\Shared</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
       <Filter>Source Files\Shared</Filter>
     </ClCompile>
   </ItemGroup>
