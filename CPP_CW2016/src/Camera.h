@@ -5,6 +5,7 @@
 #include "templates.h"
 #include "DisplayableObject.h"
 #include "GameEngine.h"
+#define MOVESPEED 3
 class Camera : public DisplayableObject{
 	GameEngine *pEngine;
 	int x, y;

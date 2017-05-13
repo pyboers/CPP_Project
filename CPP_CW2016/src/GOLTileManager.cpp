@@ -9,6 +9,14 @@ void GOLTileManager::generateNoise(){
 	}
 }
 
+int GOLTileManager::getWidth(){
+	return m_iMapWidth;
+}
+
+int GOLTileManager::getHeight(){
+	return m_iMapHeight;
+}
+
 // Override this to draw tiles.
 void GOLTileManager::DrawTileAt(
 	BaseEngine* pEngine,

@@ -14,7 +14,7 @@ void GameEngine::SetupBackgroundBuffer(void)
 	gol.SetBaseTilesPositionOnScreen(0, 0);
 	// Tell it to draw tiles from x1,y1 to x2,y2 in tile array,
 	// to the background of this screen
-	gol.DrawAllTiles(this, this->GetBackground(), 0, 0, 499, 499);
+	gol.DrawAllTiles(this, this->GetBackground(), 0, 0, gol.getWidth()-1, gol.getHeight()-1);
 }
 
 

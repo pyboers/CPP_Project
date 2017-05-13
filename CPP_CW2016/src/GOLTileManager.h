@@ -20,6 +20,9 @@ public:
 		int iMapX, int iMapY,
 		int iStartPositionScreenX, int iStartPositionScreenY) const;
 
+	int getWidth();
+	int getHeight();
+
 	void generateNoise();
 
 	void CellularAutomataPass();
